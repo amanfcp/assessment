@@ -1,3 +1,5 @@
+   ![image](https://github.com/amanfcp/assessment/assets/26200071/605ecef0-88aa-4dbf-8d15-639184b62b15)
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -45,15 +47,6 @@ yarn ios
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
 ## Congratulations! :tada:
 
@@ -108,9 +101,8 @@ Following are the elements that were considered while coding:
    };
    ```
 3. The tree structered data is then mapped using Flatlist and and recursion inside the `renderMethod` in [CategoryList.tsx](src/components/CategoryList.tsx)
-4. Here is the final outcome
 
-   ![image](https://github.com/amanfcp/assessment/assets/26200071/605ecef0-88aa-4dbf-8d15-639184b62b15)
+
 
 
 
