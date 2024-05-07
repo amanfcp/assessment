@@ -1,6 +1,6 @@
 import React from 'react';
-import CategoryList from '../components/CategoryList';
 import {CATEGORIES} from '../data';
+import {CategoryList} from '../components';
 
 export default function Home() {
   const onSelect = (_categoryIds: number[]) => {
