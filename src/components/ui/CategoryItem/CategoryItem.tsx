@@ -1,13 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {HierarchicalCategory} from '../../types';
+import {Text, View} from 'react-native';
+import {HierarchicalCategory} from '../../../types';
 import CheckBox from '@react-native-community/checkbox';
-
-type CategoryItemProps = {
-  item: HierarchicalCategory;
-  toggleCategory: (id: number) => void;
-  selectedCategoryIds: number[];
-};
+import styles from './CategoryItem.styles';
+import {CategoryItemProps} from './CategoryItem.types';
 
 export default function CategoryItem({
   item,
@@ -18,6 +14,7 @@ export default function CategoryItem({
     const Item = (
       <View key={`category-${currentItem.id}`} style={styles.item}>
         <CheckBox
+          accessibilityLabel={`category-${currentItem.id}-checkbox`}
           value={selectedCategoryIds.some(cat => cat === currentItem.id)}
           onValueChange={() => toggleCategory(currentItem.id)}
         />
@@ -30,7 +27,7 @@ export default function CategoryItem({
       </View>
     );
 
-    if (currentItem.subCategories.length === 0) {
+    if (!currentItem.subCategories.length) {
       return Item;
     }
 
@@ -48,19 +45,3 @@ export default function CategoryItem({
 
   return renderCategoryItem(item);
 }
-
-const styles = StyleSheet.create({
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 5,
-    marginLeft: 12,
-  },
-  description: {
-    fontSize: 10,
-    marginLeft: 4,
-  },
-  subcategories: {
-    marginLeft: 12,
-  },
-});

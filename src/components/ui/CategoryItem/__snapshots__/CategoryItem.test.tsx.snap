@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryItem renders correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginLeft": 12,
+      "marginVertical": 5,
+    }
+  }
+>
+  <View
+    accessibilityRole="checkbox"
+    accessibilityState={
+      {
+        "checked": false,
+        "disabled": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "text": "off",
+      }
+    }
+    accessible={true}
+    pointerEvents="auto"
+  >
+    <RNCCheckbox
+      accessibilityLabel="category-1-checkbox"
+      forwardedRef={null}
+      onValueChange={[Function]}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "height": 32,
+            "width": 32,
+          },
+          undefined,
+        ]
+      }
+      value={false}
+    />
+  </View>
+  <View>
+    <Text>
+      Phones
+    </Text>
+  </View>
+</View>
+`;

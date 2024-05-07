@@ -1,14 +1,11 @@
 import React, {useMemo, useState} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Category, HierarchicalCategory} from '../types';
-import {GENERAL_CONSTANTS} from '../constants';
-import {CategoryItem} from './ui';
-import {buildCategoryTree} from '../util';
-
-type CategoryListProps = {
-  categories: Category[];
-  onSelect?: (selectedCategoryIds: number[]) => unknown;
-};
+import {FlatList, Text, View} from 'react-native';
+import {Category, HierarchicalCategory} from '../../types';
+import {GENERAL_CONSTANTS} from '../../constants';
+import {CategoryItem, SelectedCategoryItem} from '../ui';
+import {buildCategoryTree} from '../../util';
+import styles from './CategoryList.styles';
+import {CategoryListProps} from './CategoryList.types';
 
 export default function CategoryList({
   categories,
@@ -36,15 +33,15 @@ export default function CategoryList({
     }
     setSelectedCategories(updatedSelectedCategoryIds);
     if (onSelect) {
+      console.log('>>> -> onSelect->');
       onSelect(updatedSelectedCategoryIds);
     }
   };
 
-  const removeCategory = (category: Category) => {
-    setSelectedCategories(
-      selectedCategoryIds.filter(item => item !== category.id),
-    );
+  const removeCategory = (id: number) => {
+    setSelectedCategories(selectedCategoryIds.filter(item => item !== id));
   };
+
   const renderCategoryItem = ({item}: {item: HierarchicalCategory}) => (
     <CategoryItem
       item={item}
@@ -54,12 +51,7 @@ export default function CategoryList({
   );
 
   const renderSelectedCategoryItem = ({item}: {item: Category}) => (
-    <View style={styles.selectedCategory}>
-      <Text>{item.name}</Text>
-      <TouchableOpacity onPress={() => removeCategory(item)}>
-        <Text style={styles.removeIcon}>X</Text>
-      </TouchableOpacity>
-    </View>
+    <SelectedCategoryItem item={item} removeCategory={removeCategory} />
   );
 
   return (
@@ -85,42 +77,3 @@ export default function CategoryList({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 5,
-    marginLeft: 12,
-  },
-  description: {
-    fontSize: 10,
-    marginLeft: 4,
-  },
-  subcategories: {
-    marginLeft: 12,
-  },
-  selectedCategories: {
-    marginTop: 12,
-  },
-  selectedCategoriesLabel: {
-    marginBottom: 8,
-    fontWeight: 'bold',
-  },
-  selectedCategory: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#e0e0e0',
-    padding: 5,
-    marginRight: 10,
-    borderRadius: 5,
-  },
-  removeIcon: {
-    marginLeft: 5,
-    color: 'red',
-  },
-});

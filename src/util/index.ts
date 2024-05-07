@@ -14,9 +14,10 @@ export function buildCategoryTree(
 ): HierarchicalCategory[] {
   const filteredCategories = categories.filter(cat => cat.headId === parentId);
 
-  return filteredCategories.map(category => ({
-    ...category,
-
-    subCategories: buildCategoryTree(categories, category.id || null),
-  }));
+  return filteredCategories.map(category => {
+    return {
+      ...category,
+      subCategories: buildCategoryTree(categories, category.id),
+    };
+  });
 }
