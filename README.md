@@ -70,7 +70,11 @@ Following are the elements that were considered while coding:
   - Naming convention is clear and concise
      - For components, Pascal case is used
      - For rest of the files, Kebab case is used 
-- Unit Tests /Test Coverage 
+- Unit Tests /Test Coverage
+  -  Jest and @testing-library/react-native is used for testing
+  -  Below is the coverage report
+      ![image](https://github.com/amanfcp/assessment/assets/26200071/74fad7e6-c532-4096-95f8-c22258d5a1c5)
+
 - Reusability
   - The `CategoryList` component can be used anywhere in the app
   - It also has an `onSelect` prop which allows you to perform any action, for e.g. an API call based on selected categories
@@ -102,23 +106,6 @@ Following are the elements that were considered while coding:
    ```
 3. The tree structered data is then mapped using Flatlist and and recursion inside the `renderMethod` in [CategoryList.tsx](src/components/CategoryList.tsx)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Improvements
+- Mock data generation can be implemented with Models.
+- Components can be broken down further for more readable and maintainable code.
