@@ -33,7 +33,6 @@ export default function CategoryList({
     }
     setSelectedCategories(updatedSelectedCategoryIds);
     if (onSelect) {
-      console.log('>>> -> onSelect->');
       onSelect(updatedSelectedCategoryIds);
     }
   };
